@@ -1,34 +1,48 @@
 .sources {
     display: flex;
-    flex-wrap: nowrap;
-    width: 100%;
-    height: 120px;
-    overflow: auto;
-    align-items: center;
-    font: 300 1em 'Fira Sans', sans-serif;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    max-height: 170px;
+    padding: 0.25rem 0.25rem 0.5rem;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent) transparent;
+}
+
+.sources:empty::before {
+    content: 'Loading sources…';
+    color: var(--muted);
 }
 
 .source__item {
-    background: none;
-    border: 2px solid #30c5ff;
+    padding: 0.5rem 1rem;
     font: inherit;
-    line-height: 1;
-    margin: 0.5em;
-    padding: 1em 2em;
-    color: #70d6ff;
-    transition: 0.25s;
+    font-size: 0.9rem;
+    color: var(--text);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 999px;
     cursor: pointer;
+    transition:
+        transform 0.2s,
+        border-color 0.2s,
+        color 0.2s,
+        background 0.2s;
 }
 
-.source__item:hover,
+.source__item:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+}
+
 .source__item:focus {
-    border-color: #3fcc59;
-    color: #69db7e;
-    box-shadow: 0 0.5em 0.5em -0.4em #3fcc59;
-    transform: translateY(-0.25em);
+    color: #101216;
+    font-weight: 600;
+    background: var(--gradient);
+    border-color: transparent;
 }
 
 .source__item-name {
-    font-weight: 400;
     white-space: nowrap;
 }
